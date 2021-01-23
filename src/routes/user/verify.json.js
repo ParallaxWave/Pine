@@ -1,4 +1,4 @@
-import { user_db } from './register.json.js';
+const user_db = require('quick.db');
 const bcrypt = require('bcrypt');
 export async function post(req, res, next){
   let success = false;

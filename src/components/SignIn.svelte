@@ -86,10 +86,10 @@
       {/if}
       <input bind:value={username} type="text" class="mb-4 border-2 border-gray-300 focus:border-blue-400 rounded-md px-4 py-2" placeholder="Username"><br>
       <input bind:value={password} type="password" class="mb-4 border-2 border-gray-300 focus:border-blue-400 rounded-md px-4 py-2" placeholder="Password"><br>
-      <button class="bg-green-400 px-4 py-2 rounded-sm text-white font-bold focus:outline-none" on:click={verify}>
+      <button class="bg-green-400 px-4 py-2 rounded-sm text-white font-bold focus:outline-none hover:bg-green-500" on:click={verify}>
         Sign In
       </button>
-      <button class="bg-blue-400 px-3 py-2 rounded-sm text-white font-bold focus:outline-none" on:click={register}>
+      <button class="bg-blue-400 px-3 py-2 rounded-sm text-white font-bold focus:outline-none hover:bg-blue-500" on:click={register}>
         Register 
       </button>
     </div>

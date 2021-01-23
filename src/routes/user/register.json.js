@@ -6,7 +6,7 @@ export async function post(req, res, next){
   const password = await bcrypt.hash(data.password, 10);
   let success = false;
   if(!user_db.get(`user_${username}`)){
-    user_db.set(`user_${username}`, {password: password});
+    user_db.set(`user_${username}`, {password: password, chats: []});
     success = true;
   }
   res.writeHead(200, {

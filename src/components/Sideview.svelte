@@ -1,8 +1,26 @@
 <script>
-				import ChatComponent from '../components/ChatComponent.svelte'
-				let search = false;
-				let name = "";
-				let chats = [
+  import { stores } from '@sapper/app';
+  const { session } = stores()
+	import ChatComponent from '../components/ChatComponent.svelte'
+	let search = false;
+	let name = "";
+  let chats = [];
+  const username = $session.username;
+  async function loadChats(){
+    const data = {username};
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application-json'
+      },
+      body: JSON.stringify(data)
+    };
+    const req = await fetch('user/getChats.json', options);
+    const info = await req.json();
+    console.log(info);
+  }
+  loadChats();
+				/*let chats = [
 								{
 												name: "Bob",
 												lastMsg: "Hey There",
@@ -38,7 +56,7 @@
 												lastMsg: "Spam spam spam spam spam spam spam",
 												timeStamp: "18:42"
 								}
-				];
+				];*/
 
 </script>
 
@@ -47,7 +65,7 @@
 
 <nav class="bg-gray-200 text-white p-2 px-5 h-screen text-center overflow-y-scroll">
 				        <span class="text-md">
-												<input bind:value={name} type="text" class="mt-2 w-auto p-2 focus:outline-none rounded-md text-gray-800" placeholder="Search">
+												<input bind:value={name} type="text" class="mt-2 focus:border-blue-400 w-auto p-2 rounded-md text-gray-800" placeholder="Search">
 				        </span>
 				<div class="mt-8">
 								{#if name == ""}

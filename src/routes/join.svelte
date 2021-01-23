@@ -1,7 +1,7 @@
 <script>
   import { stores } from '@sapper/app';
   const { session } = stores()
-  const username = $session.username;
+  let username = $session.username;
 </script>
 
 <style>
@@ -18,8 +18,8 @@
         Welcome to your chats <b>{username}</b>! 
       </span>
       <div class="grid grid-cols-3 gap-4 text-md mt-24">
-        <a class="col-span-1 text-gray-500 p-2 rounded-md hover:text-gray-400 focus:outline-none" href="join">Join a Group</a>
-        <a class="col-span-1 text-gray-500 p-2 rounded-md hover:text-gray-400 focus:outline-none" href="create">Create a Group</a>
+        <a class="col-span-1 text-gray-500 p-2 rounded-md hover:text-gray-400 focus:outline-none" href="chat">Join a Group</a>
+        <a class="col-span-1 text-gray-500 p-2 rounded-md hover:text-gray-400 focus:outline-none" href="chat">Create a Group</a>
         <a class="col-span-1 text-gray-500 p-2 rounded-md hover:text-gray-400 focus:outline-none" href="chat">Direct Messaging</a>
       </div>
     </div>
